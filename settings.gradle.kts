@@ -24,4 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "CustomComponents"
 include(":app")
- 
+include(":MyCustomComponents")
