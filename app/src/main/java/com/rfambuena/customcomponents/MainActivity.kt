@@ -9,16 +9,19 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import com.rfambuena.customcomponents.ui.theme.CustomComponentsTheme
+import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomButton
 import com.rfambuena.mycustomcomponents.ui.components.divider.horizontal.CustomHorizontalDivider
 import com.rfambuena.mycustomcomponents.ui.components.texts.TextPreview
+import com.rfambuena.mycustomcomponents.ui.theme.Background
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,9 +29,13 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CustomComponentsTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Background)
+                ) { innerPadding ->
                     val verticalScroll = rememberScrollState()
-                    Components(innerPadding, verticalScroll)
+                    MainScreen(innerPadding, verticalScroll)
                 }
             }
         }
@@ -36,7 +43,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun Components(
+private fun MainScreen(
     innerPadding: PaddingValues,
     verticalScroll: ScrollState
 ) {
@@ -45,10 +52,21 @@ private fun Components(
             .padding(innerPadding)
             .fillMaxSize()
             .verticalScroll(verticalScroll)
-            .background(Color.White)
     ) {
-        // implement previews here
+        Components()
+    }
+}
+
+@Composable
+private fun Components() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(24.dp)
+    ) {
         TextPreview()
+        CustomHorizontalDivider(verticalPadding = 24)
+        PreviewCustomButton()
         CustomHorizontalDivider(verticalPadding = 24)
     }
 }
