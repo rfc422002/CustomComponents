@@ -7,7 +7,7 @@ val Primary = Color(0xFFC67C4E)
 val Secondary = Color(0xFFEDD6C8)
 val FontColor = Color(0xFF313131)
 val Background = Color(0xFFF9F2ED)
-val Disabled = Color(0xFFE3E3E3)
+val Disabled = Color(0xFFA1A1A1)
 
 // destructive/error
 val E1000 = Color(0xFF1F0000)

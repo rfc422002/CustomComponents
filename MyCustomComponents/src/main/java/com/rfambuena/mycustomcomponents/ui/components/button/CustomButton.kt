@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rfambuena.mycustomcomponents.R
@@ -25,7 +26,7 @@ import com.rfambuena.mycustomcomponents.ui.theme.Disabled
 import com.rfambuena.mycustomcomponents.ui.theme.E800
 import com.rfambuena.mycustomcomponents.ui.theme.FontColor
 import com.rfambuena.mycustomcomponents.ui.theme.Primary
-import com.rfambuena.mycustomcomponents.ui.theme.body100
+import com.rfambuena.mycustomcomponents.ui.theme.label100
 
 @Composable
 fun CustomButton(
@@ -49,7 +50,7 @@ fun CustomButton(
             disabledContainerColor = getDisabledContainerColor(type),
             disabledContentColor = getDisabledContentColor(type)
         ),
-        border = getBorder(type)
+        border = getBorder(type, enabled)
     ) {
         Row(
             horizontalArrangement = Arrangement.Center,
@@ -57,18 +58,38 @@ fun CustomButton(
         ) {
             leftIcon?.let {
                 DrawIconButton(painter = it)
-                Spacer(modifier = Modifier.size(8.dp))
             }
-            Text(
-                text = text,
-                style = body100
-            )
+            if (text.isNotBlank()) {
+                Text(
+                    text = text,
+                    style = label100,
+                    modifier = Modifier.padding(horizontal = 8.dp),
+                    textAlign = TextAlign.Center
+                )
+            }
             rightIcon?.let {
-                Spacer(modifier = Modifier.size(8.dp))
                 DrawIconButton(painter = it)
             }
         }
     }
+}
+
+@Composable
+fun CustomIconButton(
+    type: CustomButtonType,
+    onClick: () -> Unit,
+    icon: Painter,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true
+) {
+    CustomButton(
+        type = type,
+        text = "",
+        onClick = { onClick() },
+        modifier = modifier,
+        enabled = enabled,
+        leftIcon = icon
+    )
 }
 
 private fun getContainerColor(type: CustomButtonType): Color =
@@ -111,17 +132,17 @@ private fun getDisabledContentColor(type: CustomButtonType): Color =
         CustomButtonType.NEUTRAL_DESTRUCTIVE -> Disabled
     }
 
-private fun getBorder(type: CustomButtonType): BorderStroke? =
+private fun getBorder(type: CustomButtonType, enabled: Boolean): BorderStroke? =
     when (type) {
         CustomButtonType.PRIMARY,
         CustomButtonType.SECONDARY -> BorderStroke(
             width = 1.dp,
-            color = Primary
+            color = if (enabled) Primary else Disabled
         )
 
         CustomButtonType.DESTRUCTIVE -> BorderStroke(
             width = 1.dp,
-            color = E800
+            color = if (enabled) E800 else Disabled
         )
 
         CustomButtonType.NEUTRAL,
@@ -148,9 +169,22 @@ fun PreviewCustomButton() {
         )
         CustomButton(
             type = CustomButtonType.PRIMARY,
+            text = "Primary button disabled",
+            onClick = {},
+            enabled = false
+        )
+        CustomButton(
+            type = CustomButtonType.PRIMARY,
             text = "Primary button (left icon)",
             onClick = {},
             leftIcon = painterResource(R.drawable.ic_chat)
+        )
+        CustomButton(
+            type = CustomButtonType.PRIMARY,
+            text = "Primary button disabled (left icon)",
+            onClick = {},
+            leftIcon = painterResource(R.drawable.ic_chat),
+            enabled = false
         )
         CustomButton(
             type = CustomButtonType.PRIMARY,
@@ -164,9 +198,21 @@ fun PreviewCustomButton() {
             onClick = {}
         )
         CustomButton(
+            type = CustomButtonType.SECONDARY,
+            text = "Secondary button disabled",
+            onClick = {},
+            enabled = false
+        )
+        CustomButton(
             type = CustomButtonType.NEUTRAL,
             text = "Neutral button",
             onClick = {}
+        )
+        CustomButton(
+            type = CustomButtonType.NEUTRAL,
+            text = "Neutral button disabled",
+            onClick = {},
+            enabled = false
         )
         CustomButton(
             type = CustomButtonType.DESTRUCTIVE,
@@ -174,9 +220,53 @@ fun PreviewCustomButton() {
             onClick = {}
         )
         CustomButton(
+            type = CustomButtonType.DESTRUCTIVE,
+            text = "Destructive button disabled",
+            onClick = {},
+            enabled = false
+        )
+        CustomButton(
             type = CustomButtonType.NEUTRAL_DESTRUCTIVE,
             text = "Neutral destructive button",
             onClick = {}
+        )
+        CustomButton(
+            type = CustomButtonType.NEUTRAL_DESTRUCTIVE,
+            text = "Neutral destructive button disabled",
+            onClick = {},
+            enabled = false
+        )
+    }
+}
+
+@Preview
+@Composable
+fun PreviewCustomIconButton() {
+    Column(verticalArrangement = Arrangement.spacedBy(24.dp)) {
+        CustomIconButton(
+            type = CustomButtonType.PRIMARY,
+            onClick = {},
+            icon = painterResource(R.drawable.ic_chat)
+        )
+        CustomIconButton(
+            type = CustomButtonType.SECONDARY,
+            onClick = {},
+            icon = painterResource(R.drawable.ic_chat)
+        )
+        CustomIconButton(
+            type = CustomButtonType.NEUTRAL,
+            onClick = {},
+            icon = painterResource(R.drawable.ic_chat)
+        )
+        CustomIconButton(
+            type = CustomButtonType.DESTRUCTIVE,
+            onClick = {},
+            icon = painterResource(R.drawable.ic_chat)
+        )
+        CustomIconButton(
+            type = CustomButtonType.NEUTRAL_DESTRUCTIVE,
+            onClick = {},
+            icon = painterResource(R.drawable.ic_chat)
         )
     }
 }

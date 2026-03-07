@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.rfambuena.customcomponents.ui.theme.CustomComponentsTheme
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomButton
+import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomIconButton
 import com.rfambuena.mycustomcomponents.ui.components.divider.horizontal.CustomHorizontalDivider
 import com.rfambuena.mycustomcomponents.ui.components.texts.TextPreview
 import com.rfambuena.mycustomcomponents.ui.theme.Background
@@ -67,6 +68,8 @@ private fun Components() {
         TextPreview()
         CustomHorizontalDivider(verticalPadding = 24)
         PreviewCustomButton()
+        CustomHorizontalDivider(verticalPadding = 24)
+        PreviewCustomIconButton()
         CustomHorizontalDivider(verticalPadding = 24)
     }
 }
