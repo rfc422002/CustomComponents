@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -22,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rfambuena.mycustomcomponents.R
+import com.rfambuena.mycustomcomponents.ui.components.shapes.Shape
 import com.rfambuena.mycustomcomponents.ui.theme.E600
 import com.rfambuena.mycustomcomponents.ui.theme.label100
 import com.rfambuena.mycustomcomponents.ui.theme.mainAppColor
@@ -40,7 +40,7 @@ fun CustomButton(
         modifier = modifier,
         onClick = { onClick() },
         enabled = enabled,
-        shape = RoundedCornerShape(2.dp),
+        shape = Shape.small,
         contentPadding = PaddingValues(horizontal = 24.dp, vertical = 12.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = getContainerColor(type),
