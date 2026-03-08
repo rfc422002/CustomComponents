@@ -42,7 +42,9 @@ class MainActivity : ComponentActivity() {
                 textColor = TextColor,
                 secondaryTextColor = Color.White,
                 disabledColor = Disabled,
-                disabledTextColor = TextColor
+                disabledTextColor = TextColor,
+                focusedContainerColor = Color.White,
+                unfocusedContainerColor = Color.Transparent
             )
         )
         setContent {

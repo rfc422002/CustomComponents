@@ -14,5 +14,7 @@ data class MainAppColors(
     val textColor: Color,
     val secondaryTextColor: Color,
     val disabledColor: Color,
-    val disabledTextColor: Color
+    val disabledTextColor: Color,
+    val focusedContainerColor: Color,
+    val unfocusedContainerColor: Color
 )
