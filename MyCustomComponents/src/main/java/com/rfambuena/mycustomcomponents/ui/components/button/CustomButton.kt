@@ -11,7 +11,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,10 +22,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rfambuena.mycustomcomponents.R
-import com.rfambuena.mycustomcomponents.ui.theme.Disabled
 import com.rfambuena.mycustomcomponents.ui.theme.E600
-import com.rfambuena.mycustomcomponents.ui.theme.FontColor
 import com.rfambuena.mycustomcomponents.ui.theme.label100
+import com.rfambuena.mycustomcomponents.ui.theme.mainAppColor
 
 @Composable
 fun CustomButton(
@@ -64,7 +62,8 @@ fun CustomButton(
                     text = text,
                     style = label100,
                     modifier = Modifier.padding(horizontal = 8.dp),
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    color = if (enabled) getContentColor(type) else getDisabledContentColor(type)
                 )
             }
             rightIcon?.let {
@@ -95,7 +94,7 @@ fun CustomIconButton(
 @Composable
 private fun getContainerColor(type: CustomButtonType): Color =
     when (type) {
-        CustomButtonType.PRIMARY -> MaterialTheme.colorScheme.primary
+        CustomButtonType.PRIMARY -> mainAppColor.primary
         CustomButtonType.DESTRUCTIVE -> E600
         CustomButtonType.SECONDARY,
         CustomButtonType.NEUTRAL,
@@ -106,10 +105,10 @@ private fun getContainerColor(type: CustomButtonType): Color =
 private fun getContentColor(type: CustomButtonType): Color =
     when (type) {
         CustomButtonType.DESTRUCTIVE,
-        CustomButtonType.PRIMARY -> Color.White
+        CustomButtonType.PRIMARY -> mainAppColor.secondaryTextColor
 
         CustomButtonType.SECONDARY,
-        CustomButtonType.NEUTRAL -> MaterialTheme.colorScheme.primary
+        CustomButtonType.NEUTRAL -> mainAppColor.primary
 
         CustomButtonType.NEUTRAL_DESTRUCTIVE -> E600
     }
@@ -118,7 +117,7 @@ private fun getContentColor(type: CustomButtonType): Color =
 private fun getDisabledContainerColor(type: CustomButtonType): Color =
     when (type) {
         CustomButtonType.DESTRUCTIVE,
-        CustomButtonType.PRIMARY -> Disabled
+        CustomButtonType.PRIMARY -> mainAppColor.disabledColor
 
         CustomButtonType.SECONDARY,
         CustomButtonType.NEUTRAL,
@@ -129,11 +128,11 @@ private fun getDisabledContainerColor(type: CustomButtonType): Color =
 private fun getDisabledContentColor(type: CustomButtonType): Color =
     when (type) {
         CustomButtonType.DESTRUCTIVE,
-        CustomButtonType.PRIMARY -> FontColor
+        CustomButtonType.PRIMARY -> mainAppColor.disabledTextColor
 
         CustomButtonType.SECONDARY,
         CustomButtonType.NEUTRAL,
-        CustomButtonType.NEUTRAL_DESTRUCTIVE -> Disabled
+        CustomButtonType.NEUTRAL_DESTRUCTIVE -> mainAppColor.disabledColor
     }
 
 @Composable
@@ -142,12 +141,12 @@ private fun getBorder(type: CustomButtonType, enabled: Boolean): BorderStroke? =
         CustomButtonType.PRIMARY,
         CustomButtonType.SECONDARY -> BorderStroke(
             width = 1.dp,
-            color = if (enabled) MaterialTheme.colorScheme.primary else Disabled
+            color = if (enabled) mainAppColor.primary else mainAppColor.disabledColor
         )
 
         CustomButtonType.DESTRUCTIVE -> BorderStroke(
             width = 1.dp,
-            color = if (enabled) E600 else Disabled
+            color = if (enabled) E600 else mainAppColor.disabledColor
         )
 
         CustomButtonType.NEUTRAL,

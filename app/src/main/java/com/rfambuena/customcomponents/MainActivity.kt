@@ -16,18 +16,35 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.rfambuena.customcomponents.ui.theme.Background
 import com.rfambuena.customcomponents.ui.theme.CustomComponentsTheme
+import com.rfambuena.customcomponents.ui.theme.Disabled
+import com.rfambuena.customcomponents.ui.theme.Primary
+import com.rfambuena.customcomponents.ui.theme.Secondary
+import com.rfambuena.customcomponents.ui.theme.TextColor
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomButton
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomIconButton
 import com.rfambuena.mycustomcomponents.ui.components.divider.horizontal.CustomHorizontalDivider
 import com.rfambuena.mycustomcomponents.ui.components.texts.TextPreview
-import com.rfambuena.mycustomcomponents.ui.theme.Background
+import com.rfambuena.mycustomcomponents.ui.theme.MainAppColors
+import com.rfambuena.mycustomcomponents.ui.theme.setUpMainAppColors
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        setUpMainAppColors(
+            MainAppColors(
+                primary = Primary,
+                secondary = Secondary,
+                textColor = TextColor,
+                secondaryTextColor = Color.White,
+                disabledColor = Disabled,
+                disabledTextColor = TextColor
+            )
+        )
         setContent {
             CustomComponentsTheme {
                 Scaffold(

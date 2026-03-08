@@ -2,9 +2,7 @@ package com.rfambuena.mycustomcomponents.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val FontColor = Color(0xFF313131)
-val Background = Color(0xFFF9F2ED)
-val Disabled = Color(0xFFA1A1A1)
+
 
 // destructive/error
 val E1000 = Color(0xFF1F0000)
