@@ -27,6 +27,8 @@ import com.rfambuena.customcomponents.ui.theme.TextColor
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomButton
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomIconButton
 import com.rfambuena.mycustomcomponents.ui.components.divider.horizontal.CustomHorizontalDivider
+import com.rfambuena.mycustomcomponents.ui.components.textfield.CustomSingleLineTextFieldPreview
+import com.rfambuena.mycustomcomponents.ui.components.textfield.CustomTextFieldPreview
 import com.rfambuena.mycustomcomponents.ui.components.texts.TextPreview
 import com.rfambuena.mycustomcomponents.ui.theme.MainAppColors
 import com.rfambuena.mycustomcomponents.ui.theme.setUpMainAppColors
@@ -90,5 +92,8 @@ private fun Components() {
         CustomHorizontalDivider(verticalPadding = 24)
         PreviewCustomIconButton()
         CustomHorizontalDivider(verticalPadding = 24)
+        CustomTextFieldPreview()
+        CustomHorizontalDivider(verticalPadding = 24)
+        CustomSingleLineTextFieldPreview()
     }
 }
