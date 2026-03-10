@@ -24,6 +24,7 @@ import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomIconBu
 import com.rfambuena.mycustomcomponents.ui.components.divider.horizontal.CustomHorizontalDivider
 import com.rfambuena.mycustomcomponents.ui.components.textfield.CustomSingleLineTextFieldPreview
 import com.rfambuena.mycustomcomponents.ui.components.textfield.CustomTextFieldPreview
+import com.rfambuena.mycustomcomponents.ui.components.textfield.SearchCustomTextFieldPreview
 import com.rfambuena.mycustomcomponents.ui.components.texts.TextPreview
 
 class MainActivity : ComponentActivity() {
@@ -76,5 +77,7 @@ private fun Components() {
         CustomTextFieldPreview()
         CustomHorizontalDivider(verticalPadding = 24)
         CustomSingleLineTextFieldPreview()
+        CustomHorizontalDivider(verticalPadding = 24)
+        SearchCustomTextFieldPreview()
     }
 }
