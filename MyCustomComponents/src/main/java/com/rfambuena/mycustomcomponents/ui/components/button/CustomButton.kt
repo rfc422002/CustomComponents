@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,7 +25,6 @@ import com.rfambuena.mycustomcomponents.R
 import com.rfambuena.mycustomcomponents.ui.components.shapes.Shape
 import com.rfambuena.mycustomcomponents.ui.theme.E600
 import com.rfambuena.mycustomcomponents.ui.theme.label100
-import com.rfambuena.mycustomcomponents.ui.theme.mainAppColor
 
 @Composable
 fun CustomButton(
@@ -94,7 +94,7 @@ fun CustomIconButton(
 @Composable
 private fun getContainerColor(type: CustomButtonType): Color =
     when (type) {
-        CustomButtonType.PRIMARY -> mainAppColor.primary
+        CustomButtonType.PRIMARY -> MaterialTheme.colorScheme.primary
         CustomButtonType.DESTRUCTIVE -> E600
         CustomButtonType.SECONDARY,
         CustomButtonType.NEUTRAL,
@@ -105,10 +105,10 @@ private fun getContainerColor(type: CustomButtonType): Color =
 private fun getContentColor(type: CustomButtonType): Color =
     when (type) {
         CustomButtonType.DESTRUCTIVE,
-        CustomButtonType.PRIMARY -> mainAppColor.secondaryTextColor
+        CustomButtonType.PRIMARY -> MaterialTheme.colorScheme.onPrimary
 
         CustomButtonType.SECONDARY,
-        CustomButtonType.NEUTRAL -> mainAppColor.primary
+        CustomButtonType.NEUTRAL -> MaterialTheme.colorScheme.primary
 
         CustomButtonType.NEUTRAL_DESTRUCTIVE -> E600
     }
@@ -117,9 +117,9 @@ private fun getContentColor(type: CustomButtonType): Color =
 private fun getDisabledContainerColor(type: CustomButtonType): Color =
     when (type) {
         CustomButtonType.DESTRUCTIVE,
-        CustomButtonType.PRIMARY -> mainAppColor.disabledColor
-
         CustomButtonType.SECONDARY,
+        CustomButtonType.PRIMARY -> MaterialTheme.colorScheme.primaryFixed
+
         CustomButtonType.NEUTRAL,
         CustomButtonType.NEUTRAL_DESTRUCTIVE -> Color.Transparent
     }
@@ -128,11 +128,11 @@ private fun getDisabledContainerColor(type: CustomButtonType): Color =
 private fun getDisabledContentColor(type: CustomButtonType): Color =
     when (type) {
         CustomButtonType.DESTRUCTIVE,
-        CustomButtonType.PRIMARY -> mainAppColor.disabledTextColor
-
         CustomButtonType.SECONDARY,
+        CustomButtonType.PRIMARY -> MaterialTheme.colorScheme.onBackground
+
         CustomButtonType.NEUTRAL,
-        CustomButtonType.NEUTRAL_DESTRUCTIVE -> mainAppColor.disabledColor
+        CustomButtonType.NEUTRAL_DESTRUCTIVE -> MaterialTheme.colorScheme.onPrimaryFixed
     }
 
 @Composable
@@ -141,12 +141,12 @@ private fun getBorder(type: CustomButtonType, enabled: Boolean): BorderStroke? =
         CustomButtonType.PRIMARY,
         CustomButtonType.SECONDARY -> BorderStroke(
             width = 1.dp,
-            color = if (enabled) mainAppColor.primary else mainAppColor.disabledColor
+            color = if (enabled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.primaryFixed
         )
 
         CustomButtonType.DESTRUCTIVE -> BorderStroke(
             width = 1.dp,
-            color = if (enabled) E600 else mainAppColor.disabledColor
+            color = if (enabled) E600 else MaterialTheme.colorScheme.primaryFixed
         )
 
         CustomButtonType.NEUTRAL,

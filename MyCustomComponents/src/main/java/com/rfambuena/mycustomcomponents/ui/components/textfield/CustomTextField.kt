@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -17,7 +18,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.rfambuena.mycustomcomponents.ui.components.shapes.Shape
 import com.rfambuena.mycustomcomponents.ui.theme.body100
 import com.rfambuena.mycustomcomponents.ui.theme.label100
-import com.rfambuena.mycustomcomponents.ui.theme.mainAppColor
 
 @Composable
 fun CustomTextField(
@@ -55,11 +55,11 @@ fun CustomTextField(
         leadingIcon = leftIcon?.let { { Icon(it, null) } },
         trailingIcon = rightIcon?.let { { Icon(it, null) } },
         colors = TextFieldDefaults.colors(
-            unfocusedContainerColor = mainAppColor.unfocusedContainerColor,
-            focusedContainerColor = mainAppColor.focusedContainerColor,
-            focusedTextColor = mainAppColor.textColor,
-            unfocusedTextColor = mainAppColor.disabledColor,
-            disabledTextColor = mainAppColor.disabledTextColor
+            disabledContainerColor = MaterialTheme.colorScheme.primaryFixed,
+            disabledTextColor = MaterialTheme.colorScheme.onBackground,
+            unfocusedContainerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+            focusedTextColor = MaterialTheme.colorScheme.onBackground,
+            focusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh
         ),
         shape = Shape.small
     )
