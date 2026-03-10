@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.rfambuena.customcomponents.ui.theme.Background
 import com.rfambuena.customcomponents.ui.theme.CustomComponentsTheme
+import com.rfambuena.mycustomcomponents.ui.components.autocomplete.CustomAutoCompleteTextFieldPreview
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomButton
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomIconButton
 import com.rfambuena.mycustomcomponents.ui.components.divider.horizontal.CustomHorizontalDivider
@@ -79,5 +80,7 @@ private fun Components() {
         CustomSingleLineTextFieldPreview()
         CustomHorizontalDivider(verticalPadding = 24)
         SearchCustomTextFieldPreview()
+        CustomHorizontalDivider(verticalPadding = 24)
+        CustomAutoCompleteTextFieldPreview()
     }
 }

@@ -143,7 +143,8 @@ fun CustomSingleLineTextFieldPreview() {
             value = text.value,
             onValueChange = { text.value = it },
             label = "Label",
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f),
+            enabled = false
         )
     }
 }
