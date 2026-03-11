@@ -23,6 +23,7 @@ import com.rfambuena.mycustomcomponents.ui.components.autocomplete.CustomAutoCom
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomButton
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomIconButton
 import com.rfambuena.mycustomcomponents.ui.components.divider.horizontal.CustomHorizontalDivider
+import com.rfambuena.mycustomcomponents.ui.components.dropdown.CustomDropdownPreview
 import com.rfambuena.mycustomcomponents.ui.components.textfield.CustomSingleLineTextFieldPreview
 import com.rfambuena.mycustomcomponents.ui.components.textfield.CustomTextFieldPreview
 import com.rfambuena.mycustomcomponents.ui.components.textfield.SearchCustomTextFieldPreview
@@ -82,5 +83,7 @@ private fun Components() {
         SearchCustomTextFieldPreview()
         CustomHorizontalDivider(verticalPadding = 24)
         CustomAutoCompleteTextFieldPreview()
+        CustomHorizontalDivider(verticalPadding = 24)
+        CustomDropdownPreview()
     }
 }
