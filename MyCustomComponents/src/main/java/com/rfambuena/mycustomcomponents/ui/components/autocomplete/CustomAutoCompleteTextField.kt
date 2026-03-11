@@ -1,6 +1,7 @@
 package com.rfambuena.mycustomcomponents.ui.components.autocomplete
 
 import androidx.annotation.IntRange
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -8,6 +9,7 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -72,7 +74,8 @@ fun <T> CustomAutoCompleteTextField(
         ) {
             ExposedDropdownMenu(
                 expanded = expanded.value,
-                onDismissRequest = { expanded.value = false }
+                onDismissRequest = { expanded.value = false },
+                modifier = Modifier.background(MaterialTheme.colorScheme.surfaceContainerHigh)
             ) {
                 filteredSuggestions.forEach { suggestion ->
                     DropdownMenuItem(
@@ -90,7 +93,7 @@ fun <T> CustomAutoCompleteTextField(
 }
 
 @Composable
-fun CustomAutoCompleteItem(suggestion: String) {
+private fun CustomAutoCompleteItem(suggestion: String) {
     Column(modifier = Modifier.padding(vertical = 8.dp)) {
         Text(
             text = suggestion,
