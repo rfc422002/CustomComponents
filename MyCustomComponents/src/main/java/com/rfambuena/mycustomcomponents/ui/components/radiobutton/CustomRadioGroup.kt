@@ -28,7 +28,7 @@ fun <T> CustomRadioGroup(
                 items = items,
                 selection = selection,
                 onItemChecked = onItemChecked,
-                modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp),
+                modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
                 enabled = enabled
             )
         }
