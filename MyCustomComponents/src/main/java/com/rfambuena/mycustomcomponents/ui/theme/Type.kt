@@ -18,35 +18,40 @@ val title100 =
     TextStyle(
         fontFamily = soraFont,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 25.sp
+        fontSize = 25.sp,
+        color = libraryPalette.textColor
     )
 
 val title200 =
     TextStyle(
         fontFamily = soraFont,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 28.sp
+        fontSize = 28.sp,
+        color = libraryPalette.textColor
     )
 
 val title300 =
     TextStyle(
         fontFamily = soraFont,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 32.sp
+        fontSize = 32.sp,
+        color = libraryPalette.textColor
     )
 
 val body100 =
     TextStyle(
         fontFamily = soraFont,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontSize = 16.sp,
+        color = libraryPalette.textColor
     )
 
 val body200 =
     TextStyle(
         fontFamily = soraFont,
         fontWeight = FontWeight.Normal,
-        fontSize = 21.sp
+        fontSize = 21.sp,
+        color = libraryPalette.textColor
     )
 
 
@@ -54,5 +59,6 @@ val label100 =
     TextStyle(
         fontFamily = soraFont,
         fontWeight = FontWeight.Light,
-        fontSize = 14.sp
+        fontSize = 14.sp,
+        color = libraryPalette.textColor
     )

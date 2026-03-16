@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
@@ -14,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -23,6 +23,7 @@ import com.rfambuena.mycustomcomponents.R
 import com.rfambuena.mycustomcomponents.ui.components.shapes.Shape
 import com.rfambuena.mycustomcomponents.ui.theme.body100
 import com.rfambuena.mycustomcomponents.ui.theme.label100
+import com.rfambuena.mycustomcomponents.ui.theme.libraryPalette
 
 @Composable
 fun CustomTextField(
@@ -57,15 +58,27 @@ fun CustomTextField(
             singleLine = singleLine,
             maxLines = maxLines,
             minLines = minLines,
-            placeholder = placeholder?.let { { Text(text = it, style = body100) } },
+            placeholder = placeholder?.let {
+                {
+                    Text(
+                        text = it,
+                        style = body100,
+                        color = if (enabled) {
+                            libraryPalette.placeholderColor
+                        } else {
+                            libraryPalette.disabledPlaceholderColor
+                        }
+                    )
+                }
+            },
             leadingIcon = leftIcon?.let { { Icon(it, null) } },
             trailingIcon = rightIcon?.let { { Icon(it, null) } },
             colors = TextFieldDefaults.colors(
-                disabledContainerColor = MaterialTheme.colorScheme.primaryFixed,
-                disabledTextColor = MaterialTheme.colorScheme.onBackground,
-                unfocusedContainerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-                focusedTextColor = MaterialTheme.colorScheme.onBackground,
-                focusedContainerColor = MaterialTheme.colorScheme.surfaceContainerHigh
+                disabledContainerColor = libraryPalette.disabledContainerColor,
+                disabledTextColor = libraryPalette.disabledContentColor,
+                unfocusedContainerColor = Color.Transparent,
+                focusedTextColor = libraryPalette.focusedContentColor,
+                focusedContainerColor = libraryPalette.focusedContainerColor
             ),
             shape = Shape.small
         )
@@ -138,12 +151,19 @@ fun CustomTextFieldPreview() {
 @Composable
 fun CustomSingleLineTextFieldPreview() {
     val text = remember { mutableStateOf("") }
-    Row {
+    Column {
         CustomSingleLineTextField(
             value = text.value,
             onValueChange = { text.value = it },
             label = "Label",
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.fillMaxWidth(),
+            enabled = true
+        )
+        CustomSingleLineTextField(
+            value = text.value,
+            onValueChange = { text.value = it },
+            label = "Label",
+            modifier = Modifier.fillMaxWidth(),
             enabled = false
         )
     }

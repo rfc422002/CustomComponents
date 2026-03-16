@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,8 +22,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rfambuena.mycustomcomponents.R
 import com.rfambuena.mycustomcomponents.ui.components.shapes.Shape
-import com.rfambuena.mycustomcomponents.ui.theme.E600
 import com.rfambuena.mycustomcomponents.ui.theme.label100
+import com.rfambuena.mycustomcomponents.ui.theme.libraryPalette
 
 @Composable
 fun CustomButton(
@@ -94,8 +93,8 @@ fun CustomIconButton(
 @Composable
 private fun getContainerColor(type: CustomButtonType): Color =
     when (type) {
-        CustomButtonType.PRIMARY -> MaterialTheme.colorScheme.primary
-        CustomButtonType.DESTRUCTIVE -> E600
+        CustomButtonType.PRIMARY -> libraryPalette.primaryButtonColor
+        CustomButtonType.DESTRUCTIVE -> libraryPalette.destructiveColor
         CustomButtonType.SECONDARY,
         CustomButtonType.NEUTRAL,
         CustomButtonType.NEUTRAL_DESTRUCTIVE -> Color.Transparent
@@ -104,13 +103,11 @@ private fun getContainerColor(type: CustomButtonType): Color =
 @Composable
 private fun getContentColor(type: CustomButtonType): Color =
     when (type) {
-        CustomButtonType.DESTRUCTIVE,
-        CustomButtonType.PRIMARY -> MaterialTheme.colorScheme.onPrimary
-
+        CustomButtonType.PRIMARY -> libraryPalette.primaryButtonContentColor
+        CustomButtonType.DESTRUCTIVE -> libraryPalette.destructiveContentColor
+        CustomButtonType.NEUTRAL_DESTRUCTIVE -> libraryPalette.destructiveColor
         CustomButtonType.SECONDARY,
-        CustomButtonType.NEUTRAL -> MaterialTheme.colorScheme.primary
-
-        CustomButtonType.NEUTRAL_DESTRUCTIVE -> E600
+        CustomButtonType.NEUTRAL -> libraryPalette.primaryButtonColor
     }
 
 @Composable
@@ -118,7 +115,7 @@ private fun getDisabledContainerColor(type: CustomButtonType): Color =
     when (type) {
         CustomButtonType.DESTRUCTIVE,
         CustomButtonType.SECONDARY,
-        CustomButtonType.PRIMARY -> MaterialTheme.colorScheme.primaryFixed
+        CustomButtonType.PRIMARY -> libraryPalette.disabledContainerColor
 
         CustomButtonType.NEUTRAL,
         CustomButtonType.NEUTRAL_DESTRUCTIVE -> Color.Transparent
@@ -129,10 +126,10 @@ private fun getDisabledContentColor(type: CustomButtonType): Color =
     when (type) {
         CustomButtonType.DESTRUCTIVE,
         CustomButtonType.SECONDARY,
-        CustomButtonType.PRIMARY -> MaterialTheme.colorScheme.onBackground
+        CustomButtonType.PRIMARY -> libraryPalette.disabledContentColor
 
         CustomButtonType.NEUTRAL,
-        CustomButtonType.NEUTRAL_DESTRUCTIVE -> MaterialTheme.colorScheme.onPrimaryFixed
+        CustomButtonType.NEUTRAL_DESTRUCTIVE -> libraryPalette.disabledColor
     }
 
 @Composable
@@ -141,12 +138,12 @@ private fun getBorder(type: CustomButtonType, enabled: Boolean): BorderStroke? =
         CustomButtonType.PRIMARY,
         CustomButtonType.SECONDARY -> BorderStroke(
             width = 1.dp,
-            color = if (enabled) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.primaryFixed
+            color = if (enabled) libraryPalette.primaryButtonColor else libraryPalette.disabledContainerColor
         )
 
         CustomButtonType.DESTRUCTIVE -> BorderStroke(
             width = 1.dp,
-            color = if (enabled) E600 else MaterialTheme.colorScheme.primaryFixed
+            color = if (enabled) libraryPalette.destructiveColor else libraryPalette.disabledContainerColor
         )
 
         CustomButtonType.NEUTRAL,

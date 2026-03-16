@@ -9,7 +9,6 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -23,6 +22,7 @@ import com.rfambuena.mycustomcomponents.R
 import com.rfambuena.mycustomcomponents.ui.components.divider.CustomHorizontalDivider
 import com.rfambuena.mycustomcomponents.ui.components.textfield.CustomSingleLineTextField
 import com.rfambuena.mycustomcomponents.ui.theme.body100
+import com.rfambuena.mycustomcomponents.ui.theme.libraryPalette
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -75,7 +75,7 @@ fun <T> CustomAutoCompleteTextField(
             ExposedDropdownMenu(
                 expanded = expanded.value,
                 onDismissRequest = { expanded.value = false },
-                modifier = Modifier.background(MaterialTheme.colorScheme.surfaceContainerHigh)
+                modifier = Modifier.background(libraryPalette.focusedContainerColor)
             ) {
                 filteredSuggestions.forEach { suggestion ->
                     DropdownMenuItem(

@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconToggleButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -19,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rfambuena.mycustomcomponents.R
 import com.rfambuena.mycustomcomponents.ui.theme.label100
+import com.rfambuena.mycustomcomponents.ui.theme.libraryPalette
 
 @Composable
 fun CustomCheckbox(
@@ -30,12 +30,12 @@ fun CustomCheckbox(
 ) {
     val tintColor = if (enabled) {
         if (checked) {
-            MaterialTheme.colorScheme.primary
+            libraryPalette.primaryButtonColor
         } else {
-            MaterialTheme.colorScheme.onBackground
+            libraryPalette.textColor
         }
     } else {
-        MaterialTheme.colorScheme.primaryFixed
+        libraryPalette.disabledColor
     }
 
     Row(
