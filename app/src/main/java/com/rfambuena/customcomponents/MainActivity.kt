@@ -24,6 +24,8 @@ import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomButton
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomIconButton
 import com.rfambuena.mycustomcomponents.ui.components.divider.horizontal.CustomHorizontalDivider
 import com.rfambuena.mycustomcomponents.ui.components.dropdown.CustomDropdownPreview
+import com.rfambuena.mycustomcomponents.ui.components.radiobutton.CustomRadioGroupPreview
+import com.rfambuena.mycustomcomponents.ui.components.radiobutton.PreviewCustomRadioButton
 import com.rfambuena.mycustomcomponents.ui.components.textfield.CustomSingleLineTextFieldPreview
 import com.rfambuena.mycustomcomponents.ui.components.textfield.CustomTextFieldPreview
 import com.rfambuena.mycustomcomponents.ui.components.textfield.SearchCustomTextFieldPreview
@@ -85,5 +87,9 @@ private fun Components() {
         CustomAutoCompleteTextFieldPreview()
         CustomHorizontalDivider(verticalPadding = 24)
         CustomDropdownPreview()
+        CustomHorizontalDivider(verticalPadding = 24)
+        PreviewCustomRadioButton()
+        CustomHorizontalDivider(verticalPadding = 24)
+        CustomRadioGroupPreview()
     }
 }
