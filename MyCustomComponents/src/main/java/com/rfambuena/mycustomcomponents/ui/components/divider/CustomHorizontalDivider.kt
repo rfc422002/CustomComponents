@@ -1,4 +1,4 @@
-package com.rfambuena.mycustomcomponents.ui.components.divider.horizontal
+package com.rfambuena.mycustomcomponents.ui.components.divider
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
