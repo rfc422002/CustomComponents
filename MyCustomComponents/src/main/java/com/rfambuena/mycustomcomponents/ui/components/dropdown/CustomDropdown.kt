@@ -59,7 +59,8 @@ fun <T> CustomDropdown(
             rightIcon = expandIcon,
             modifier = Modifier
                 .menuAnchor(ExposedDropdownMenuAnchorType.PrimaryEditable, true)
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            readOnly = true
         )
 
         if (expanded.value && items.isNotEmpty() && enabled) {

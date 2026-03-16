@@ -38,7 +38,8 @@ fun CustomTextField(
     maxLines: Int = 4,
     minLines: Int = 1,
     leftIcon: Painter? = null,
-    rightIcon: Painter? = null
+    rightIcon: Painter? = null,
+    readOnly: Boolean = false
 ) {
     Column(modifier = modifier) {
         label?.let {
@@ -51,6 +52,7 @@ fun CustomTextField(
         OutlinedTextField(
             value = value,
             modifier = Modifier.fillMaxWidth(),
+            readOnly = readOnly,
             onValueChange = onValueChange,
             textStyle = body100,
             enabled = enabled,
@@ -95,7 +97,8 @@ fun CustomSingleLineTextField(
     placeholder: String? = stringResource(R.string.write_here),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     leftIcon: Painter? = null,
-    rightIcon: Painter? = null
+    rightIcon: Painter? = null,
+    readOnly: Boolean = false
 ) {
     CustomTextField(
         value = value,
@@ -109,7 +112,8 @@ fun CustomSingleLineTextField(
         rightIcon = rightIcon,
         maxLines = 1,
         minLines = 1,
-        placeholder = placeholder
+        placeholder = placeholder,
+        readOnly = readOnly
     )
 }
 
