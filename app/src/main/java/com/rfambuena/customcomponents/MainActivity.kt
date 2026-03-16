@@ -22,6 +22,7 @@ import com.rfambuena.customcomponents.ui.theme.CustomComponentsTheme
 import com.rfambuena.mycustomcomponents.ui.components.autocomplete.CustomAutoCompleteTextFieldPreview
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomButton
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomIconButton
+import com.rfambuena.mycustomcomponents.ui.components.checkbox.CustomCheckboxPreview
 import com.rfambuena.mycustomcomponents.ui.components.divider.CustomHorizontalDivider
 import com.rfambuena.mycustomcomponents.ui.components.divider.CustomHorizontalDividerWithText
 import com.rfambuena.mycustomcomponents.ui.components.dropdown.CustomDropdownPreview
@@ -98,5 +99,10 @@ private fun Components() {
             verticalPadding = 24
         )
         CustomRadioGroupPreview()
+        CustomHorizontalDividerWithText(
+            text = "Custom Checkbox",
+            verticalPadding = 24
+        )
+        CustomCheckboxPreview()
     }
 }
