@@ -15,15 +15,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.rfambuena.customcomponents.ui.theme.CustomComponentsTheme
-import com.rfambuena.customcomponents.ui.theme.Disabled
-import com.rfambuena.customcomponents.ui.theme.DisabledContent
-import com.rfambuena.customcomponents.ui.theme.DisabledPlaceholderColor
-import com.rfambuena.customcomponents.ui.theme.PlaceholderColor
-import com.rfambuena.customcomponents.ui.theme.Primary
-import com.rfambuena.customcomponents.ui.theme.TextColor
 import com.rfambuena.mycustomcomponents.ui.components.autocomplete.CustomAutoCompleteTextFieldPreview
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomButton
 import com.rfambuena.mycustomcomponents.ui.components.button.PreviewCustomIconButton
@@ -37,9 +30,8 @@ import com.rfambuena.mycustomcomponents.ui.components.textfield.CustomSingleLine
 import com.rfambuena.mycustomcomponents.ui.components.textfield.CustomTextFieldPreview
 import com.rfambuena.mycustomcomponents.ui.components.textfield.SearchCustomTextFieldPreview
 import com.rfambuena.mycustomcomponents.ui.components.texts.TextPreview
-import com.rfambuena.mycustomcomponents.ui.theme.E600
 import com.rfambuena.mycustomcomponents.ui.theme.LibraryPalette
-import com.rfambuena.mycustomcomponents.ui.theme.libraryPalette
+import com.rfambuena.mycustomcomponents.ui.theme.setupLibraryPalette
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,20 +51,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun setupLibraryPalette() {
-        libraryPalette = LibraryPalette(
-            textColor = TextColor,
-            primaryButtonColor = Primary,
-            primaryButtonContentColor = Color.White,
-            destructiveColor = E600,
-            destructiveContentColor = Color.White,
-            focusedContainerColor = Color.White,
-            focusedContentColor = TextColor,
-            disabledContainerColor = Disabled,
-            disabledContentColor = DisabledContent,
-            disabledColor = Disabled,
-            placeholderColor = PlaceholderColor,
-            disabledPlaceholderColor = DisabledPlaceholderColor
-        )
+        setupLibraryPalette(LibraryPalette())
     }
 }
 

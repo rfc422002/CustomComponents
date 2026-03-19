@@ -5,6 +5,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import com.rfambuena.mycustomcomponents.ui.theme.Background
+import com.rfambuena.mycustomcomponents.ui.theme.Primary
 
 private val DarkColorScheme = darkColorScheme(
     background = Background,
