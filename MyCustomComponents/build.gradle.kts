@@ -53,7 +53,7 @@ afterEvaluate {
 
                 groupId = "com.github.rfc422002"
                 artifactId = "mycustomcomponents"
-                version = "1.0.1"
+                version = "1.0.3"
             }
         }
     }
