@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rfambuena.mycustomcomponents.R
@@ -69,7 +70,9 @@ fun CustomTextField(
                             libraryPalette.placeholderColor
                         } else {
                             libraryPalette.disabledPlaceholderColor
-                        }
+                        },
+                        maxLines = if (singleLine) 1 else maxLines,
+                        overflow = TextOverflow.Ellipsis
                     )
                 }
             },
@@ -160,6 +163,7 @@ fun CustomSingleLineTextFieldPreview() {
             value = text.value,
             onValueChange = { text.value = it },
             label = "Label",
+            placeholder = "vsdvfmlksncvjosnjiof kijbfiubh fiuwonf iwuonfwei junwefij wnjif nwijf nwijf nijnf ",
             modifier = Modifier.fillMaxWidth(),
             enabled = true
         )
