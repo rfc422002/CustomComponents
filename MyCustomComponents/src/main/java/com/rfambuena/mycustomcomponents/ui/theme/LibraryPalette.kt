@@ -6,20 +6,20 @@ fun setupLibraryPalette(newPalette: LibraryPalette) {
     libraryPalette = newPalette
 }
 
-internal lateinit var libraryPalette: LibraryPalette
+internal var libraryPalette: LibraryPalette = LibraryPalette()
 
 data class LibraryPalette(
-    val textColor: Color= TextColor,
-    val primaryButtonColor: Color= Primary,
-    val primaryButtonContentColor: Color= Color.White,
-    val destructiveColor: Color= Destructive,
-    val destructiveContentColor: Color= Color.White,
-    val focusedContainerColor: Color= Color.White,
-    val focusedContentColor: Color= TextColor,
-    val disabledContainerColor: Color= Disabled,
-    val disabledContentColor: Color= DisabledContent,
-    val disabledColor: Color= Disabled,
-    val placeholderColor: Color= PlaceholderColor,
+    val textColor: Color = TextColor,
+    val primaryButtonColor: Color = Primary,
+    val primaryButtonContentColor: Color = Color.White,
+    val destructiveColor: Color = Destructive,
+    val destructiveContentColor: Color = Color.White,
+    val focusedContainerColor: Color = Color.White,
+    val focusedContentColor: Color = TextColor,
+    val disabledContainerColor: Color = Disabled,
+    val disabledContentColor: Color = DisabledContent,
+    val disabledColor: Color = Disabled,
+    val placeholderColor: Color = PlaceholderColor,
     val disabledPlaceholderColor: Color = DisabledPlaceholderColor
 )
 
