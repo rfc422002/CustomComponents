@@ -1,5 +1,6 @@
 package com.rfambuena.mycustomcomponents.ui.components.divider
 
+import androidx.annotation.IntRange
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,8 +15,8 @@ import com.rfambuena.mycustomcomponents.ui.theme.label100
 @Composable
 fun CustomHorizontalDividerWithText(
     text: String,
-    verticalPadding: Int = 0,
-    horizontalPadding: Int = 0
+    @IntRange(from = 0) verticalPadding: Int = 0,
+    @IntRange(from = 0) horizontalPadding: Int = 0
 ) {
     Row(
         modifier = Modifier
